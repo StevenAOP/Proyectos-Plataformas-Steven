@@ -4,6 +4,12 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
+# Verificando que el proceso brindado por el usuarios existe
+if ! pgrep "$nombre_proceso" >/dev/null; then
+    echo "Error: El proceso con el nombre $nombre_proceso no existe."
+    exit 1
+fi
+
 # Almacenado las 
 nombre_del_proceso=$1
 comando_para_ejecutar=$2
