@@ -48,13 +48,13 @@ wait $PID
 # Graficar los resultados con gnuplot
 gnuplot -persist <<-EOFMarker
     set title "Consumo de CPU y Memoria"
-    set xlabel "Segundo en el que fue el proceso"
+    set xlabel "Segundos que duró proceso"
     set ylabel "Porcentaje"
     set timefmt "%Y-%m-%d %H:%M:%S"
     set format x "%S"
     set xdata time
-    plot "$LOGFILE" using 1:2 title 'CPU' with lines, \
-         "$LOGFILE" using 1:3 title 'Memoria' with lines
+    plot "$LOGFILE" using 1:3 title 'CPU' with lines, \
+         "$LOGFILE" using 1:4 title 'Memoria' with lines
 EOFMarker
 
 echo "Monitoreo completado. Los resultados han sido graficados."
