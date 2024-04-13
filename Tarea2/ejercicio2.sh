@@ -8,6 +8,7 @@ fi
 nombre_del_proceso=$1
 comando_para_ejecutar=$2
 
+# Mensaje al usuario
 echo "Monitoreando el proceso: $nombre_del_proceso"
 
 while true; do
@@ -17,10 +18,10 @@ while true; do
     
     # Si pgrep retorna 1, el proceso no se encuentra en ejecución
     if [ $status -ne 0 ]; then
-        echo "Proceso $nombre_del_proceso no encontrado. Iniciando..."
+        echo "Proceso $nombre_del_proceso no encontrado. Levantando..."
         # Ejecuta el comando para iniciar el proceso
         $comando_para_ejecutar &
     fi
-    # Espera un tiempo antes de verificar nuevamente
+    # Espera un tiempo antes de verificar nuevamente (2 segundos)
     sleep 2
 done
