@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define SIZE 5
 
@@ -10,6 +11,8 @@ int main() {
     int num = solicitud();
 
     int num_revisado = revision(num);
+
+    matriz(num_revisado);
 
     return 0;
 }
@@ -33,3 +36,21 @@ int revision(int i){
     };
 }
 
+int matriz(int n){
+    int matrix[n][n];
+
+    int i, j;
+
+    for(i = 0; i < n; i++){
+        for(j = 0; j <= n; j++){
+            matrix[i][j] = rand() % 2;
+        }
+    }
+    for(i = 0; i < n; i++){
+        for(j = 0; j < n; j++){
+            matrix[i][j] = rand() % 2;
+            printf("%d",matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
