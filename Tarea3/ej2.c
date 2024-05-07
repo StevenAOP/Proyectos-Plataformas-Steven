@@ -12,10 +12,8 @@ int factorial(int n){
     return i;
 }
 
-int main(){
-    int num; // Declarando num
-    printf("Ingrese el número para calcular el factorial: ");
-    scanf("%d", &num); // Leyendo lo ingresado por el usuario
+int main(int arge, char *argv[]){
+    int num = atoi(argv[1]); // Se agregó para que lea el número ingresado
     int fac = factorial(num); // Corrección
     printf("El factorial de %d es: %d\n", num, fac); // Modificacción
     return 0;
