@@ -4,8 +4,8 @@ int main(){
     // Declarando variables
     int i;
     int num_triangular;
-    for(i = 0; i < 100; i++){
-        num_triangular= i * (i + 1) / 2;
+    for(i = 0; i < 100; i++){ // Recorriendo de 0 a 99
+        num_triangular= i * (i + 1) / 2; // Evaluando la fórmula
         printf("%d", num_triangular);
 
         // Coloca las comas a los número para distinguir bien cada número
