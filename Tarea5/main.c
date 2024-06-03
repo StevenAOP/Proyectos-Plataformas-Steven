@@ -6,5 +6,7 @@ int main(){
 
     insertBeginning(5, &head);
 
+    adelanteImprimir(head);
+
     freeList(head);
 }

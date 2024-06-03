@@ -10,5 +10,6 @@ typedef struct Node {
 
 // Declaración de la funciones
 void insertBeginning(int data, Node** head);
+void adelanteImprimir(Node* head);
 void freeList(Node* head);
 #endif
