@@ -106,6 +106,27 @@ void adelanteImprimir(Node* head) {
     printf("\n");
 }
 
+
+/*
+ * Esta función recorre la lista hacia atrás y la imprime.
+ * @param head Puntero referencia del inicio de la lista
+*/
+void atrasImprimir(Node* head) {
+    Node* temp = head;
+    if (temp == NULL) {
+        return;
+    }
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->prev;
+    }
+    printf("\n");
+}
+
+
 void freeList(Node* head){
     Node * actual = head;
     Node * next;

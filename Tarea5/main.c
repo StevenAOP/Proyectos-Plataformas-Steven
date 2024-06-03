@@ -15,6 +15,7 @@ int main(){
     insertar_por_Indice(7, 3, &head);
     
     adelanteImprimir(head);
+    atrasImprimir(head);
 
     freeList(head);
 }
