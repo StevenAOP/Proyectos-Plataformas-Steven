@@ -19,7 +19,7 @@ void insertBeginning(int data, Node** head){
 
 }
 
-void freList(Node* head){
+void freeList(Node* head){
     Node * actual = head;
     Node * next;
     while (actual != NULL){
