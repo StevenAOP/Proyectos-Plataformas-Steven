@@ -22,6 +22,36 @@ void insertBeginning(int data, Node** head){
     *head = newNode;
 }
 
+
+/*
+ * Esta función inserta un nodo al inicio de la lista.
+ * @param data El número a insertar.
+ * @param head Puntero referencia del inicio de la lista
+*/
+void insertEnd(int data, Node** head){
+    Node * newNode = (Node *)malloc(sizeof(Node));
+    if (newNode == NULL){
+        printf("Fallo reservando memoria\n");
+        return;
+    }
+    newNode->data = data;
+    newNode->next = NULL;
+
+    if (*head == NULL) {
+        newNode->prev = NULL;
+        *head = newNode;
+        return;
+    }
+
+    Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+
+
 /*
  * Esta función recorre la lista hacia adelante y la imprime.
  * @param head Puntero referencia del inicio de la lista
