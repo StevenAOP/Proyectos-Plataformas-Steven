@@ -53,6 +53,47 @@ void insertEnd(int data, Node** head){
 
 
 /*
+ * Esta función inserta un nodo al inicio de la lista.
+ * @param data  El número a insertar.
+ * @param index El índice donde se insertará el número.
+ * @param head  Puntero referencia del inicio de la lista
+*/
+void insertar_por_Indice(int data, int index, Node** head) {
+    if (index == 0) {
+        insertBeginning(data, head);
+        return;
+    }
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    if (newNode == NULL) {
+        printf("Fallo reservando memoria\n");
+        return;
+    }
+
+    // Se asigna el valor al nuevo nodo
+    newNode->data = data;
+
+    // Recorre la lista hasta el nodo anterior de la posición deseada
+    Node* temp = *head;
+    for (int i = 0; temp != NULL && i < index - 1; i++) {
+        temp = temp->next;
+    }
+
+    // Verifica que el índice esté dentro de la lista
+    if (temp == NULL || temp->next == NULL) {
+        printf("Indice mayor que la lista\n");
+        free(newNode);
+        return;
+    }
+
+    // Se inserta el nuevo nodo
+    newNode->next = temp->next;
+    temp->next->prev = newNode;
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+
+
+/*
  * Esta función recorre la lista hacia adelante y la imprime.
  * @param head Puntero referencia del inicio de la lista
 */
