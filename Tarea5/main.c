@@ -27,5 +27,10 @@ int main(){
     printf("\nSe imprime la lista que se recorre hacia atrás\n");
     atrasImprimir(head);
 
+
+    // Se hace la busqueda del nodo para el dato 8
+    buscaNode(8, head);
+    
+
     freeList(head);
 }

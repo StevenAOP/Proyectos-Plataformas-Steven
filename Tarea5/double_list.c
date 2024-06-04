@@ -124,6 +124,26 @@ void eliminarNode(int data, Node** head) {
 
 
 /*
+ * Esta función busca el nodo de una dato dado.
+ * @param data  El número a buscar para indicar el nodo.
+ * @param head  Puntero referencia del inicio de la lista
+*/
+void buscaNode(int data, Node* head) {
+    Node* temp = head;
+    int index = 0;
+    while (temp != NULL && temp->data != data) {
+        temp = temp->next;
+        index++;
+    }
+    if (temp!= NULL) {
+        printf("\nEl nodo encontrado del dato es: %d\n", index);
+    } else {
+        printf("\nDato no encontrado\n");
+    }
+}
+
+
+/*
  * Esta función recorre la lista hacia adelante y la imprime.
  * @param head Puntero referencia del inicio de la lista
 */
