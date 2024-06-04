@@ -5,7 +5,7 @@
 /*
  * Esta función inserta un nodo al inicio de la lista.
  * @param data El número a insertar.
- * @param head Puntero referencia del inicio de la lista
+ * @param head Puntero al puntero referencia del inicio de la lista
 */
 void insertBeginning(int data, Node** head){
     Node * newNode = (Node *)malloc(sizeof(Node));
@@ -26,7 +26,7 @@ void insertBeginning(int data, Node** head){
 /*
  * Esta función inserta un nodo al inicio de la lista.
  * @param data El número a insertar.
- * @param head Puntero referencia del inicio de la lista
+ * @param head Puntero al puntero referencia del inicio de la lista
 */
 void insertEnd(int data, Node** head){
     Node * newNode = (Node *)malloc(sizeof(Node));
@@ -56,7 +56,7 @@ void insertEnd(int data, Node** head){
  * Esta función inserta un nodo al inicio de la lista.
  * @param data  El número a insertar.
  * @param index El índice donde se insertará el número.
- * @param head  Puntero referencia del inicio de la lista
+ * @param head  Puntero al puntero referencia del inicio de la lista
 */
 void insertar_por_Indice(int data, int index, Node** head) {
     if (index == 0) {
@@ -90,6 +90,36 @@ void insertar_por_Indice(int data, int index, Node** head) {
     temp->next->prev = newNode;
     temp->next = newNode;
     newNode->prev = temp;
+}
+
+
+/*
+ * Esta función elimina un nodo apartir de un dato de la lista dado.
+ * @param data  El número a buscar para eliminar el nodo.
+ * @param head  Puntero al puntero referencia del inicio de la lista
+*/
+void eliminarNode(int data, Node** head) {
+    Node* temp = *head;
+
+    // Se recorre la lista para encontrar el número
+    while (temp != NULL && temp->data != data) {
+        temp = temp->next;
+    }
+    if (temp == NULL) {
+        printf("El nodo del dato %d no se encuentra en la lista\n", data);
+        return;
+    }
+
+    // Se elimina el nodo del número encontrado
+    if (temp->prev != NULL) {
+        temp->prev->next = temp->next;
+    } else {
+        *head = temp->next;
+    }
+    if (temp->next != NULL) {
+        temp->next->prev = temp->prev;
+    }
+    free(temp);
 }
 
 
