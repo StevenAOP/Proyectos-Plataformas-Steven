@@ -15,7 +15,7 @@ void insertBeginning(int data, Node** head){
     }
     newNode->data = data;
     newNode->next = NULL;
-    newNode->next = *head;
+    newNode->prev = NULL;
     if (*head != NULL) {
         (*head)->prev = newNode;
     }
@@ -85,11 +85,18 @@ void insertar_por_Indice(int data, int index, Node** head) {
         return;
     }
 
-    // Se inserta el nuevo nodo
-    newNode->next = temp->next;
-    temp->next->prev = newNode;
-    temp->next = newNode;
-    newNode->prev = temp;
+    // Verifica si se está insertando al final de la lista
+    if (temp->next == NULL) {
+        newNode->next = NULL;
+        newNode->prev = temp;
+        temp->next = newNode;
+    } else {
+        // Se inserta el nuevo nodo en medio
+        newNode->next = temp->next;
+        temp->next->prev = newNode;
+        temp->next = newNode;
+        newNode->prev = temp;
+    }
 }
 
 
