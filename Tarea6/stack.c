@@ -41,10 +41,39 @@ int peek(Stack* stack) {
 
 
 /*
+ * Esta función elimina y devuelve el elemento en la parte superior de la pila.
+ * @param stack Un puntero a la estructura Stack.
+ * @return El dato eliminado de la parte superior de la pila.
+ */
+int pop(Stack* stack) {
+    if (isEmpty(stack)) {
+        fprintf(stderr, "La pila está vacía\n");
+        exit(EXIT_FAILURE);
+    }
+    Node* temp = stack->top;
+    int poppedData = temp->data;
+    stack->top = stack->top->next;
+    free(temp);
+    return poppedData;
+}
+
+
+/*
  * Esta función verifica si la pila está vacía.
  * @param stack Un puntero a la estructura Stack.
  * @return True si la pila está vacía nino retorna False.
  */
 bool isEmpty(Stack* stack) {
     return stack->top == NULL;
+}
+
+
+/*
+ * Esta función libera la memoria utilizada por la pila.
+ * @param stack Un puntero a la estructura Stack.
+ */
+void freeStack(Stack* stack) {
+    while (!isEmpty(stack)) {
+        pop(stack);
+    }
 }

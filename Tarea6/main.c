@@ -14,5 +14,16 @@ int main(){
     push(&stack, 32);
     push(&stack, 16);
     printf("En el top de la pila aparce un: %d\n", peek(&stack));
+
+    printf("\nEstado de la pila. \nVacía: %s\n", isEmpty(&stack) ? "Sí" : "No");
+
+    printf("\nEliminando: %d\n", pop(&stack));
+    printf("En el top de la pila aparce un: %d\n", peek(&stack));
+
+    printf("\nLiberando memoria.\n");
+    freeStack(&stack);
+
+    printf("\nEstado de la pila. \nVacía: %s\n", isEmpty(&stack) ? "Sí" : "No");    
+
     return 0;
 }

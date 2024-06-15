@@ -20,5 +20,7 @@ void initStack(Stack* stack);
 void push(Stack* stack, int data);
 int peek(Stack* stack);
 bool isEmpty(Stack* stack);
+int pop(Stack* stack);
+void freeStack(Stack* stack);
 
 #endif
